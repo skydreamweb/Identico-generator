@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1> 
       Input:
-    <input type="text">
+    <input @input="onInput" type="text">
 
   </div>
 </template>
@@ -12,6 +12,13 @@ export default {
   name: 'Input',
   props: {
     msg: String
+  },
+  methods: {
+    onInput: function(e) {
+      console.log(e.target.value);
+      
+      
+    }
   }
 }
 </script>

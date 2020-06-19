@@ -6,3 +6,5 @@ Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+//el property vezuje jednu istancu za jedan template
