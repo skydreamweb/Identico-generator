@@ -2,19 +2,17 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/identico.png">
     <Input msg="Welcome to Identico App"/>
-    <Output></Output>
   </div>
 </template>
 
 <script>
 import Input from './components/Input.vue'
-import Output from './components/Output.vue'
 
 export default {
   name: 'App',
+  props: ['Input'],
   components: {
-    Input,
-    Output
+    Input
   }
 }
 </script>

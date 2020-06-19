@@ -1,42 +1,31 @@
+  
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1> 
-      Input:
-    <input @input="onInput" type="text">
-
+  <div>
+    <h3>Input text:</h3>
+    <input type='text' @input='onInput' />
+    <h3>Your identicon:</h3>
+    <div v-html='identicon'></div>
   </div>
 </template>
-
 <script>
+import jdenticon from 'jdenticon';
 export default {
-  name: 'Input',
-  props: {
-    msg: String
-  },
-  methods: {
-    onInput: function(e) {
-      console.log(e.target.value);
-      
-      
+    data() {
+      return {
+        textInput: ''
+      }
+    },
+    computed: {
+      identicon: function() {
+        return jdenticon.toSvg(this.textInput, 200);
+      }
+    },
+    methods: {
+      onInput: function(event) {
+        this.textInput = event.target.value;
+      }
     }
-  }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style>
 </style>
